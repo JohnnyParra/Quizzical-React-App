@@ -22,7 +22,7 @@ export default function Question(props) {
 
   return(
     <div className="question">
-      <h3>{props.question}</h3>
+      <h3 dangerouslySetInnerHTML={{__html: props.question}}></h3>
       <div className="answers">
         {shuffledAnswers}
       </div>
