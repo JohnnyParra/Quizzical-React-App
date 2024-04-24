@@ -17,7 +17,8 @@ export default function Question(props) {
         style={styles}
         onClick={() => props.answerSelected(answer.answerId, props.id)}
         className="answer"
-      >{answer.answer}</div>)});
+        dangerouslySetInnerHTML={{__html: answer.answer}}
+      ></div>)});
 
 
   return(
