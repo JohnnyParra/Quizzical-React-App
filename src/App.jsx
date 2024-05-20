@@ -143,8 +143,8 @@ export default function App() {
       {start && !loading && questionElements}
       {finish && <p className="results">You got {score}/5 correct</p>}
       {!loading && start && <button onClick={checkAnswers} className="check-btn">{finish ? 'New Game' : 'Check Answers'}</button>}
-      <img className="image-blue" src="../src/images/blob-blue.png" />
-      <img className="image-yellow" src="../src/images/blob-yellow.png" />
+      <img className="image-blue" src="../images/blob-blue.png" />
+      <img className="image-yellow" src="../images/blob-yellow.png" />
     </main>
   )
 }
