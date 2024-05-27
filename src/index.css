@@ -1,6 +1,6 @@
 html, body{
-  margin: 0px;
   background-color: #F5F7FB;
+  margin: 0px;
 }
 
 main{
@@ -9,14 +9,14 @@ main{
 }
 
 .start{
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   color: #293264;
+  display: flex;
+  flex-direction: column;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
+  height: 100vh;
+  justify-content: center;
 }
 
 .start-title{
@@ -25,98 +25,98 @@ main{
 }
 
 .select{
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 10px;
 }
 .select label {
-  width: 120px;
-  font-size: 20px;
   font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  width: 120px;
 }
 .select-options {
-  height: 50px;
-  width: 300px;
-  font-family: 'Inter', sans-serif;
   border: none;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'Inter', sans-serif;
+  height: 50px;
   padding: 10px;
+  width: 300px;
 }
 
 .start-btn{
-  margin-top: 25px;
   background-color: #4D5B9E;
-  color: white;
-  width: 193px;
-  height: 52px;
   border-radius: 15px;
+  color: white;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
+  height: 52px;
+  margin-top: 25px;
+  width: 193px;
 }
 
 .image-blue{
-  position: fixed;
   bottom: -120px;
   left: -120px;
+  position: fixed;
 }
 
 .image-yellow{
   position: fixed;
-  top: -120px;
   right: -120px;
+  top: -120px;
 }
 
 .question{
-  font-family: 'Karla', sans-serif;
-  color: #293264;
-  margin: 10px 20px 10px 20px;
   border-bottom: solid 1px #dbdef0;
+  color: #293264;
+  font-family: 'Karla', sans-serif;
+  margin: 10px 20px 10px 20px;
   z-index: 1;
 }
 
 .answers{
   display: flex;
-  margin: 10px;
   font-family: 'Inter', sans-serif;
   font-size: 12px;
+  margin: 10px;
 }
 
 .answer{
-  display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
   border: solid 1px #4D5B9E;
   border-radius: 5px;
-  padding: 5px;
-  margin: 8px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 8px;
+  padding: 5px;
+  text-align: center;
 }
 
 .check-btn{
-  margin-top: 25px;
+  align-self: center;
   background-color: #4D5B9E;
-  color: white;
-  width: 193px;
-  height: 52px;
   border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  height: 52px;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
-  align-self: center;
-  cursor: pointer;
+  margin-top: 25px;
+  width: 193px;
   z-index: 1;
 }
 
 .results{
+  align-self: center;
   margin: 0px;
   z-index: 1;
-  align-self: center;
 }
 
 .loading{
+  align-items: center;
   display:flex;
   height: 100vh;
   justify-content: center;
-  align-items: center;
 }
