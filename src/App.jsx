@@ -41,46 +41,38 @@ export default function App() {
     return url
   }
 
-  useEffect(() => {
-    try{
-      if(start === true){
-        async function getQuestions() {
-          setLoading(true);
-          const response = await fetch(chooseUrl());
-          const responseJson = await response.json();
-          setAllData(prevData => {
-            let newData = []
-            for(let i = 0; i < responseJson.results.length; i++){
-              newData.push({
-                question: responseJson.results[i].question,
-                correct_answer: responseJson.results[i].correct_answer,
-                answers: shuffleArray([
-                  {answer: responseJson.results[i].correct_answer, isSelected: false, answerId: nanoid()},
-                  {answer: responseJson.results[i].incorrect_answers[0], isSelected: false, answerId: nanoid()},
-                  {answer: responseJson.results[i].incorrect_answers[1], isSelected: false, answerId: nanoid()},
-                  {answer: responseJson.results[i].incorrect_answers[2], isSelected: false, answerId: nanoid()}
-                ]),
-                id: nanoid()
-              })
-            }
-            return newData
-          });
-        }
-        getQuestions();
+  async function getQuestions() {
+    setLoading(true);
+    const response = await fetch(chooseUrl());
+    const responseJson = await response.json();
+    setAllData(prevData => {
+      let newData = []
+      for(let i = 0; i < responseJson.results.length; i++){
+        newData.push({
+          question: responseJson.results[i].question,
+          correct_answer: responseJson.results[i].correct_answer,
+          answers: shuffleArray([
+            {answer: responseJson.results[i].correct_answer, isSelected: false, answerId: nanoid()},
+            {answer: responseJson.results[i].incorrect_answers[0], isSelected: false, answerId: nanoid()},
+            {answer: responseJson.results[i].incorrect_answers[1], isSelected: false, answerId: nanoid()},
+            {answer: responseJson.results[i].incorrect_answers[2], isSelected: false, answerId: nanoid()}
+          ]),
+          id: nanoid()
+        })
       }
-    }catch(err){
+      return newData
+    });
+  }
+
+  async function startGame(){
+    setStart(true);
+    try {
+      await getQuestions();
+      setLoading(false);
+    } catch (err) {
       console.alert(err, 'This combination does not exist.')
       resetGame();
     }
-
-    setTimeout(() => {
-      setLoading(false);
-    },3000);
-  }, [start])
-
-
-  function startGame(){
-    setStart(true);
   }
 
 
