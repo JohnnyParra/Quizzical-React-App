@@ -10,8 +10,8 @@ export default function App() {
   const [finish, setFinish] = useState(false);
   const[loading, setLoading] = useState(false);
   const [gameOptions, setGameOptions] = useState({
-    category: '',
-    difficulty: ''
+    category: localStorage.getItem("quizcategory") || '',
+    difficulty: localStorage.getItem("quizdifficulty") || ''
   })
 
   function shuffleArray(array) {
@@ -23,7 +23,8 @@ export default function App() {
   }
 
   function changeGameOptions(event) {
-    setGameOptions(prevOptions => ({...prevOptions, [event.target.name]:event.target.value}))
+    setGameOptions(prevOptions => ({...prevOptions, [event.target.name]:event.target.value}));
+    localStorage.setItem(`quiz${event.target.name}`, event.target.value);
   }
 
   function chooseUrl(){
@@ -138,7 +139,7 @@ export default function App() {
 
   return(
     <main>
-      { !start && <Start startGame={startGame} changeGameOptions={changeGameOptions} />}
+      { !start && <Start startGame={startGame} category={gameOptions.category} difficulty={gameOptions.difficulty} changeGameOptions={changeGameOptions} />}
       {start && loading && <h1 className="loading">Loading...</h1>}
       {start && !loading && questionElements}
       {finish && <p className="results">You got {score}/5 correct</p>}

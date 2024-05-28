@@ -13,6 +13,7 @@ export default function Start(props){
                 name="category" 
                 id="category"
                 className="select-options"
+                value={props.category}
                 onChange={() => props.changeGameOptions(event)}
           >
                 <option value="">Any Category</option>
@@ -48,6 +49,7 @@ export default function Start(props){
                 name="difficulty" 
                 id="difficulty"
                 className="select-options"
+                value={props.difficulty}
                 onChange={() => props.changeGameOptions(event)}
           >
                 <option value="">Any Difficulty</option>
