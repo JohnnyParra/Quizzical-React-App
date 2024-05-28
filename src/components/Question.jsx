@@ -5,6 +5,7 @@ export default function Question(props) {
   const shuffledAnswers = props.answers.map(answer =>{
     const styles = {
       backgroundColor: (props.finish && props.correct_answer === answer.answer && answer.isSelected) ? "#94D7A2" : 
+      (props.finish && props.correct_answer == answer.answer) ? "#94D7A2" :
       (props.finish && props.correct_answer !== answer.answer && answer.isSelected) ? "#F8BCBC" :
       (answer.isSelected) ? "#D6DBF0" : "",
       border: answer.isSelected ? 'none' : '',
